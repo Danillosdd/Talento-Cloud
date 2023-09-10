@@ -44,7 +44,7 @@ while(operacao != 0):
   print("0. Sair")
 
   numero1 = int(input("Informe o primeiro número: "))
-  numero2 = int(input("Informe o primeiro número: "))
+  numero2 = int(input("Informe o segundo número: "))
   operacao = int(input("Informe a operação desejada: "))
 
   resultado = caluladora(numero1,numero2, operacao)
