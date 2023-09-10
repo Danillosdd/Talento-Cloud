@@ -38,7 +38,7 @@ print("3. Multiplicação")
 print("4. Divisão")
 
 numero1 = int(input("Informe o primeiro número: "))
-numero2 = int(input("Informe o segundo número: "))
+numero2 = int(input("Informe o primeiro número: "))
 operacao = int(input("Informe a operação desejada: "))
 
 resultado = caluladora(numero1,numero2, operacao)
