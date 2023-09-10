@@ -1,4 +1,4 @@
-# Calculadora dois números
+# Calculadora dois número
 
 
 * Código em python para o curso Proz Educacao + AWS.
