@@ -20,6 +20,10 @@ lista_num = ['melancia', 'morango', 'abacaxi']
 for i in range(len(lista_num)):
   print(lista_num[i])
 
+for i in range(6):
+  planta_atual = str(i)
+  print("Regar a planta: " + planta_atual)
+
 lista_num = ['melancia', 'morango', 'abacaxi']
 
 for i in lista_num:
@@ -76,3 +80,26 @@ while(ano_valido == False):
 
   except:
     print("\nAno de nascimento inválido!")
+
+for i in range(6):
+  if(i %  2 != 0):
+    continue
+  print("Regar a planta: " + str(i))
+
+for i in range(6):
+  if(i %  2 != 0):
+    break
+  print("Regar a planta: " + str(i))
+
+contador = 0
+
+while(contador < 6):
+  planta_atual = str(contador)
+  print("Regar a planta: " + planta_atual)
+  contador += 1
+
+def escrever_multiplicacao(n1,n2):
+   resultado =str(n1 * n2)
+   fra = str(n1) + ' X ' + str(n2) + ' = ' + resultado
+   return fra
+print(escrever_multiplicacao(2, 10))
