@@ -1,4 +1,4 @@
-# Recife - Marco Zero
+# Recife - Pontos Turísticos
 
 
 * Código em C para o curso Proz Educacao + AWS
