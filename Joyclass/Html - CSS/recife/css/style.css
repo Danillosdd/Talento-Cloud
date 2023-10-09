@@ -130,6 +130,8 @@ section.nossa-historia {
   height: 600px;
   padding: 150px 50px;
   background: #112847;
+  display: flex;
+  flex-direction: row;
 }
 section.nossa-historia .texto {
   padding-left: 100px;
@@ -157,7 +159,7 @@ section.nossa-historia .texto p {
   font-weight: 500;
   line-height: 160%; /* 25.6px */
   letter-spacing: -0.32px;
-  opacity: 0.70;
+  opacity: 0.7;
   margin-top: 40px;
   text-align: justify;
 }
@@ -173,10 +175,11 @@ section.nossa-historia .imagem {
   background-repeat: no-repeat;
 }
 
-/*TURISMO*/
+/*TURISMO - MARCO ZERO - CAPELA DOURADA - FORTE DAS CINCO PONTAS*/
 
 .flex-mosaico {
   display: flex;
+  flex-direction: row;
 }
 
 .item-1-mosaico {
@@ -217,6 +220,8 @@ footer {
   background-color: #aab5c3;
   padding-top: 50px;
   padding-left: 50px;
+  display: flex;
+  flex-direction: row;
 }
 
 footer .footer-section-logo {
