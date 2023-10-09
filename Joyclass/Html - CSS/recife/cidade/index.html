@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prefeitura de Recife</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../css/font-awesome.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      rel="stylesheet"
+    />
+	<meta charset="utf-8" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+</head>
+<body>
+<!--CABEÇALHO-->
+<header class="header">
+	
+	<div class="logo"></div>
+	<nav class="desktop-menu">
+		<ul>
+			<li><a href="../">HOME</a></li>
+			<li><a href="../cidade">CIDADE</a></li>
+			<li><a href="../turismo">TURISMO</a></li>
+		</ul>
+	</nav>
+
+</header>
+<!--NOSSA HISTÓRIA-->
+<section class="nossa-historia">
+	<div class="texto">
+	  <h1>Nossa História:</h1>
+	  <p>
+      Recife, no nordeste do Brasil, tem uma história rica desde sua fundação pelos portugueses em 1537. Foi influenciada pelos holandeses no século XVII, voltou ao domínio português em 1654 após conflitos. A cidade cresceu como centro comercial, cultural e portuário. Possui uma herança cultural diversificada, destacando-se no carnaval. Atualmente, é um polo industrial, tecnológico e turístico, mantendo sua rica herança histórica e cultural.
+	  </p>
+	</div>
+	<div class="imagem"></div>
+  </section>
+<!--TEXTO DIVISOR-->
+<section class="texto-divisor">
+	<div class="icone-seta"></div>
+		
+		<div><h2>CONHEÇA NOSSA CIDADE!</h2></div>
+		<div><p>Um poquinho de Gramado ...</p></div>
+		
+	</section>
+
+	<div class="video">
+		<video autoplay="" muted="" loop="" poster="/arquitetura/imagens/capa.jpg" id="home-video" style="width: 100%;display: block;margin-bottom: -6%;">
+		<source src="/video/gramado_movie.mp4" type="video/mp4">
+	</div>
+	<br/>
+	<br/>
+	<br/>
+
+	<div class="clear"></div>
+ <!--FOOTER-->
+ <footer>
+  <div class="footer-section-logo">
+    <img src="../imagens/logo.png" alt="logo" />
+    <p>Acesse Nossas Redes Sociais</p>
+    <div class="icons-social">
+      <a href="https://www.facebook.com/prefeituradorecife" target="_blank"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <a href="https://twitter.com/prefrecife" target="_blank"
+        ><i class="fab fa-twitter"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/prefeiturarecife"
+        target="_blank"
+        ><i class="fab fa-instagram"></i
+      ></a>
+    </div>
+  </div>
+
+  <div class="footer-section-endereco">
+    <h1>Endereço</h1>
+    <nav class="menu">
+      <ul>
+        <li>Av. Cais do Apolo, 925</li>
+        <li>airro do Recife, Recife / PE</li>
+        <li>CEP: 50030-903</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-section-atendimento">
+    <h1>Atendimento</h1>
+    <nav class="menu">
+      <ul>
+        <li>Segunda a sexta-feira</li>
+        <li>das 8h às 11h30</li>
+        <li>e das 13h30 às 17h30</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-section-telefone">
+    <h1>Telefone</h1>
+    <nav class="menu">
+      <ul>
+        <li> 0800 281 0040</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="clear"></div>
+  <hr class="hr" />
+  <div class="direitos-reservados">
+    <span>© 2023 Prefeitura de Recife | Todos os direitos reservados</span>
+  </div>
+</footer>
+
+<div class="clear"></div>
+
+  <!--VOLTAR AO TOPO-->
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
+
+  <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+</html>
