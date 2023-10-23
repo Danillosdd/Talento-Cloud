@@ -1,0 +1,49 @@
+HEADER E FOOTER
+background-color: #ac9675;
+
+
+
+LETRAS DO HEADER
+color: #f5eeee;
+
+
+
+BOTÕES E  TÍTULOS(H1, P)
+background-color: #2a130a;
+
+
+
+NOSSA HISTORIA
+background-color: #e4d7ce;
+
+
+NOSSSA EQUIPE
+background-color: #aea393;
+
+
+main section.nossa-historia .texto h1 {
+  color: #2a130a;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 121.2%;
+  text-transform: capitalize;
+  margin-top: 30px;
+}
+
+
+
+main section.nossa-historia .texto p {
+  color: #2a130a;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: -0.32px;
+  opacity: 0.45;
+  margin-top: 40px;
+  text-align: justify;
+}
+
+
+box-shadow: 0px 5px 7px -1px rgba(0, 0, 0, .35);
