@@ -1,0 +1,1 @@
+σ year < 1990 and rank >= 8 (movies)

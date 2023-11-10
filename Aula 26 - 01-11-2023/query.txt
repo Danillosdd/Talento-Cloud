@@ -1,0 +1,12 @@
+σ year = 1968 (movies)
+σ rank < 5 (movies)
+σ first_name = 'Stanley' (directors)
+σ gender = 'F' (actors)
+σ gender = 'F' and first_name = 'Anne' (actors)
+σ gender = 'M' and last_name = 'Campbell' (actors)
+π first_name, last_name (directors)
+π first_name, last_name, gender (actors)
+π name, rank, year (σ year < 1970 (movies))
+π first_name, last_name (σ gender > 'F' (actors))
+π name, year, rank (σ rank >= 7.5 (movies))
+
