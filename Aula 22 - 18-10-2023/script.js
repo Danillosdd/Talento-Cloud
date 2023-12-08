@@ -1,3 +1,4 @@
+
 // ---------- VALIDAÇÃO USERNAME ---------- //
 let usernameInput = document.getElementById("username");
 
@@ -14,16 +15,13 @@ usernameInput.addEventListener("change", function (evento) {
 
   if (valor_username.length < 3) {
     //Estilos dinamicos caso o valor não seja válido
-    usernameInput.classList.remove('correct');
-    usernameInput.classList.add('error');
-    usernameHelper.innerText = 'Seu username deve ter 3 ou mais caracteres'
-    usernameHelper.classList.add('visible')
-
+    usernameHelper.innerText = 'Seu username deve ter 3 ou mais caracteres';
+    estilizarInputIncorreto(usernameInput, usernameHelper);
+    inputsCorretos.username = false;
   } else {
     //Estilos dinamicos caso o valor seja válido
-    usernameInput.classList.remove('error');
-    usernameHelper.classList.remove('visible');
-    usernameInput.classList.add('correct');
+    estilizarInputCorreto(usernameInput, usernameHelper);
+    inputsCorretos.username = true;
   }
 
 })
@@ -41,16 +39,14 @@ emailInput.addEventListener("change", function (evento) {
   let valor_email = evento.target.value
 
   if (valor_email.includes('@') && valor_email.includes('.com')) {
-    //Estilos dinamicos caso o valor seja válido
-    emailInput.classList.remove('error');
-    emailHelper.classList.remove('visible');
-    emailInput.classList.add('correct');
+    //Estilos dinamicos caso o valor seja válido    
+    estilizarInputCorreto(emailInput, emailHelper);
+    inputsCorretos.email = true;
   } else {
     //Estilos dinamicos caso o valor não seja válido
-    emailInput.classList.remove('correct');
-    emailInput.classList.add('error');
     emailHelper.innerText = 'Email inválido';
-    emailHelper.classList.add('visible');
+    estilizarInputIncorreto(emailInput, emailHelper);
+    inputsCorretos.email = false;
   }
 
 })
@@ -70,18 +66,16 @@ idadeInput.addEventListener("change", function (evento) {
   let valor_idade = evento.target.value
   console.log(valor_idade);
 
-  if (valor_idade.length < 18) {
+  if (valor_idade < 18) {
     //Estilos dinamicos caso o valor não seja válido
-    idadeInput.classList.remove('correct');
-    idadeInput.classList.add('error');
     idadeHelper.innerText = 'Menor de idade é inválido'
-    idadeHelper.classList.add('visible')
+    estilizarInputIncorreto(idadeInput, idadeHelper);
+    inputsCorretos.idade = false;
 
   } else {
     //Estilos dinamicos caso o valor seja válido
-    idadeInput.classList.remove('error');
-    idadeHelper.classList.remove('visible');
-    idadeInput.classList.add('correct');
+    estilizarInputCorreto(idadeInput, idadeHelper);
+    inputsCorretos.idade = true;
   }
 
 })
@@ -101,25 +95,23 @@ senhaInput.addEventListener("change", function (evento) {
   let valor_senha = evento.target.value
   //console.log(valor_senha);
 
-  if (valor_senha.length < 3) {
+  if ((valor_senha.length < 4) || (valor_senha.length > 8)) {
     //Estilos dinamicos caso o valor não seja válido
-    senhaInput.classList.remove('correct');
-    senhaInput.classList.add('error');
-    senhaHelper.innerText = 'Senha deve ter entre 4 a 8 caracteres'
-    senhaHelper.classList.add('visible')
+    senhaHelper.innerText = 'Senha deve ter entre 4 a 8 caracteres';
+    estilizarInputIncorreto(senhaInput, senhaHelper);
+    inputsCorretos.senha = false;
+
 
   } else {
     //Estilos dinamicos caso o valor seja válido
-    senhaInput.classList.remove('error');
-    senhaHelper.classList.remove('visible');
-    senhaInput.classList.add('correct');
+    estilizarInputCorreto(senhaInput, senhaHelper);
+    inputsCorretos.senha = true;
   }
 
   if ((senhaInput.value != confirmasenhaInput.value) && (confirmasenhaInput.value != '')) {
-    confirmasenhaInput.classList.remove('correct');
-    confirmasenhaInput.classList.add('error');
-    confirmasenhaHelper.innerText = 'Confirmação é diferente da senha'
-    confirmasenhaHelper.classList.add('visible')
+    estilizarInputIncorreto(confirmasenhaInput, confirmasenhaHelper);
+    confirmasenhaHelper.innerText = 'Confirmação é diferente da senha';
+    inputsCorretos.confirmaSenha = false;
     confirmasenhaInput.value = '';
   }
 
@@ -142,17 +134,15 @@ confirmasenhaInput.addEventListener("blur", function (evento) {
 
   if (valor_confirma_senha != senhaInput.value) {
     //Estilos dinamicos caso o valor não seja válido
-    confirmasenhaInput.classList.remove('correct');
-    confirmasenhaInput.classList.add('error');
-    confirmasenhaHelper.innerText = 'Confirmação é diferente da senha'
-    confirmasenhaHelper.classList.add('visible')
+    confirmasenhaHelper.innerText = 'Confirmação é diferente da senha';
+    estilizarInputIncorreto(confirmasenhaInput, confirmasenhaHelper);
+    inputsCorretos.confirmaSenha = false;
     confirmasenhaInput.value = '';
 
   } else {
     //Estilos dinamicos caso o valor seja válido
-    confirmasenhaInput.classList.remove('error');
-    confirmasenhaHelper.classList.remove('visible');
-    confirmasenhaInput.classList.add('correct');
+    estilizarInputCorreto(confirmasenhaInput, confirmasenhaHelper);
+    inputsCorretos.confirmaSenha = true;
   }
 
 })
@@ -174,7 +164,27 @@ function mostrarPopUp(input, label) {
 }
 
 
-// ---------- CHAMAR FUNÇÃO DO LABEL DE CAMPO OBRIGATÓRIO ---------- //
+// ---------- VALIDAÇÃO ENVIO DO FORMULÁRIO ---------- //
+let btnSubmit = document.querySelector('button[type="submit"]');
+let inputsCorretos = {
+  username: false,
+  email: false,
+  idade: false,
+  senha: false,
+  confirmaSenha: false
+}
+
+// Validar valor do submit
+btnSubmit.addEventListener("click", function (evento) {
+  if (inputsCorretos.username == false || inputsCorretos.email == false || inputsCorretos.idade == false || inputsCorretos.senha == false || inputsCorretos.confirmaSenha == false) {
+    //evento.preventDefault();
+    //alert("Os Campos Obrigatórios precisam ser preenchidos corretamente!");
+  } else {
+    alert("Formulário Enviado com Sucesso!");
+  }
+})
+
+// ---------- CHAMAR FUNÇÃO DE VALIÇÕES DOS CAMPOS ---------- //
 mostrarPopUp(usernameInput, usernameLabel);
 
 mostrarPopUp(emailInput, emailLabel);
@@ -185,3 +195,19 @@ mostrarPopUp(senhaInput, senhaLabel);
 
 mostrarPopUp(confirmasenhaInput, confirmasenhaLabel);
 
+
+
+
+function estilizarInputIncorreto(input, helper) {
+  helper.classList.add('visible');
+  input.classList.add('error');
+  input.classList.remove('correct');
+
+}
+
+function estilizarInputCorreto(input, helper) {
+  helper.classList.remove('visible');
+  input.classList.remove('error');
+  input.classList.add('correct');
+
+}

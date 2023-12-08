@@ -1,0 +1,176 @@
+create table professor
+(
+P_NOME varchar(50),
+U_nome varchar(50)
+)
+
+
+INSERT INTO aluno VALUES('Vitória', 'Claudino', 5542, '2º Ano', 'Matemática', 7.0)
+
+
+select * from aluno where nota >= 8.0
+
+
+SELECT P_NOME, U_NOME FROM aluno as a , professor as p 
+
+SELECT a.P_NOME, a.U_NOME, p.P_NOME, p.U_nome FROM aluno as a , professor as p 
+
+SELECT a.P_NOME, a.U_NOME, p.P_NOME, p.U_nome FROM aluno as a , professor as p 
+GROUP BY a.P_NOME
+HAVING count(a.P_NOME) > 1
+
+
+create database talento_cloud;
+
+CREATE TABLE disciplinas(
+id_disciplina int auto_increment primary key,
+nome_disciplina varchar(50) not null,
+nome_professor varchar(50) not null
+);
+
+CREATE TABLE alunos(
+id_alunos int auto_increment primary key,
+nome_alunos varchar(50) not null,
+disciplina_id int,
+constraint foreign key(disciplina_id)
+    references disciplinas(id_disciplina)
+);
+
+CREATE TABLE historico_alunos(
+id_historico_alunos int auto_increment primary key,
+data datetime,
+id_aluno int not null,    
+disciplina_anteior int, 
+nova_disciplina int
+);
+
+
+create trigger inserir_dados
+after update
+on alunos 
+for each row
+begin
+if new.disciplina_id <> old.disciplina_id then
+insert into historico_alunos(data, disciplina_anteior, nova_disciplina, id_aluno) VALUES(now(),old.disciplina_id, new.disciplina_id, old.id_alunos);
+end if;
+end
+
+
+
+udpate INTO disciplinas(id_disciplina, nome_disciplina, nome_professor) VALUES (123, 'Matemática', 'Gleisson');
+
+INSERT INTO disciplinas(id_disciplina, nome_disciplina, nome_professor) VALUES (124, 'Algorítimos', 'Fabio');
+
+INSERT INTO alunos(id_alunos, nome_alunos, disciplina_id) VALUES (12,'Vitor',123);
+
+INSERT INTO alunos(id_alunos, nome_alunos, disciplina_id) VALUES (22,'Miguel',123);
+
+update alunos set disciplina_id = 124 where id_alunos = 22;
+
+
+
+
+CREATE FUNCTION nome_função (parâmetros)
+
+RETURNS tipos_dados
+
+Código_da_funcao;
+
+
+CREATE FUNCTION teste (a DECIMAL(4,2), b INT)
+
+ RETURNS int
+
+ DETERMINISTIC
+
+ return a * b;
+ 
+ 
+ SELECT nome_função(parâmetros);
+
+
+SELECT teste (5.5, 4) AS resultado;
+
+
+DROP FUNCTION nome_função;
+
+
+
+DROP FUNCTION teste;
+
+
+
+
+CREATE PROCEDURE nome_procedimento (parâmetros)
+
+
+
+CREATE PROCEDURE saberPreço (alimento smallint)
+
+select concat('O valor é ', preço) AS preços
+
+from tabela_alimento
+
+where id_alimento = alimento;
+
+
+
+
+CALL nome_procedimento(parâmetros);
+
+
+
+CALL saberPreço (3);
+
+
+
+DROP PROCEDURE nome_procedimento;
+
+
+DROP PROCEDURE saberPreço;
+
+
+
+
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'senha'
+
+
+
+
+CREATE CERTIFICATE MeuCertificado
+
+ENCRYPTION BY PASSWORD = 'SENHA@123'
+
+WITH SUBJECT = 'Meu Certificado'
+
+
+
+
+DES, TRIPLE_DES, TRIPLE_DES_3KEY, RC2, RC4, RC4_128, DESX, AES_128, AES_192 e AES_256.
+
+
+
+
+CREATE SYMMETRIC KEY MinhaChave
+
+WITH ALGORITHM = AES_256
+
+ENCRYPTION BY CERTIFICATE MeuCertificado
+
+
+
+
+OPEN SYMMETRIC KEY ChaveSenha
+
+DECRYPTION BY CERTIFICATE Certificado
+
+GO
+
+SELECT    *    senhadescriptografada = CAST (DECRYPTBYKEY(SENHA) AS varchar(50))
+
+FROM Usuario
+
+CLOSE SYMMETRIC KEY ChaveSenha
+
+
+
